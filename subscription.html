@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Tour Guide</title>
+  
+    
+    <link rel="stylesheet" href="css/subscription.css">
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="price-toggler">
+        <span class="month active">monthly</span>
+        <span class="year">yearly</span>
+    </div>
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>Basic</h3>
+            <div class="price month"><span></span><span>00</span></div>
+            <div class="price year"><span></span><span>10</span></div>
+            <div class="list">
+                <p> one device </p>
+                <p> No self drive </p>
+                <p> currency exchange</p>
+            </div>
+            <a href="payment.html" class="btn">choose plan</a>
+        </div>
+
+        <div class="box">
+            <h3>VIP</h3>
+            <div class="price month"><span></span><span>00</span></div>
+            <div class="price year"><span></span><span>10</span></div>
+            <div class="list">
+                <p>  2 devices </p>
+                <p>  Self Drive</p>
+                <p> currency exchange</p>
+            </div>
+            <a href="payment.html" class="btn">choose plan</a>
+        </div>
+
+        <div class="box">
+            <h3>Premium</h3>
+            <div class="price month"><span></span><span>00</span></div>
+            <div class="price year"><span></span><span>10</span></div>
+            <div class="list">
+                <p>  4 devices </p>
+                <p> self Drive</p>
+                <p> currency exchange</p>
+            </div>
+            <a href="payment.html" class="btn">choose plan</a>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+let month = document.querySelector('.price-toggler .month');
+let year = document.querySelector('.price-toggler .year');
+let monthAmount = document.querySelectorAll('.box-container .box .month');
+let yearAmount = document.querySelectorAll('.box-container .box .year');
+
+year.onclick = () =>{
+    year.classList.add('active');
+    month.classList.remove('active');
+
+    monthAmount.forEach(mo =>{ mo.style.display = 'none' });
+    yearAmount.forEach(yr =>{ yr.style.display = 'block' });
+};
+
+month.onclick = () =>{
+    year.classList.remove('active');
+    month.classList.add('active');
+
+    monthAmount.forEach(mo =>{ mo.style.display = 'block' });
+    yearAmount.forEach(yr =>{ yr.style.display = 'none' });
+};
+
+</script>
+    
+</body>
+</html>

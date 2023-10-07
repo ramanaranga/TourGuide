@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tour Guide</title>
+  <script src="/jQuery.js"></script>
+  <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="responsive.css">
+  <script type ="text/javascript">
+    function preventBack(){
+     window.history.forward();
+    }
+    setTimeout("preventBack()",0);
+ </script>
+</head>
+<body>
+  <div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+      <header>Login</header>
+      <form action="#">
+        <input id="email" type="text" placeholder="Enter your email">
+        <input id="pwd" type="password" placeholder="Enter your password">
+        
+        <a href="#">Forgot password?</a>
+        <input type="button" class="button" value="Login" onclick="login()">
+      </form>
+      <div class="signup">
+        <span class="signup">Don't have an account? 
+         <label for="check">Signup</label>
+        </span>
+      </div>
+    </div>
+    <div class="registration form">
+      <form action="/sign_up" method="POST"></form>
+      <header>Signup</header>
+      <form action="#">
+        <input id="name"   type="text" placeholder="Enter Username">
+        <input id="eml"  type="text" placeholder="Enter Email Id">
+        <input id="phno"  type="tel" placeholder="Enter Mobile Number">
+        <input id="password" type="password" placeholder="Enter Password">
+        <input type="button" class="button" value="Signup"  onclick ="signup()">
+      </form>
+      <div class="signup">
+        <span class="signup">Already have an account?
+         <label for="check">Login</label>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  //Usually, you put script-tags into the head
+  function login() {
+    const request = new XMLHttpRequest();
+    const url = 'http://localhost:5000/loginInfos';
+    request.open("GET", url);
+    request.send();
+
+    var email = document.getElementById("email").value;
+    var pwd = document.getElementById("pwd").value;
+    console.log(email);
+    console.log(pwd);
+    request.onload = (e) => {
+        var responses = JSON.parse(request.response);
+        responses = responses.recordset;
+        console.log(responses);
+        var found = responses.find(item => {
+          return item.email == email && item.password == pwd;
+        });
+        if(found != undefined || found != null)
+        {
+          document.location.href="/home.html";
+        }
+        else{
+          alert("Cannot Login. Details are incorrect");
+        }
+    }
+  }
+  function signup() {
+    const url = 'http://localhost:5000/signupInfos';
+    const request = new XMLHttpRequest();
+
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("eml").value;
+    var phno = document.getElementById("phno").value;
+    var pwd = document.getElementById("password").value;
+
+    var body = {
+      "username":name,
+      "phno":phno,
+      "email":email,
+      "pwd":pwd
+    }
+    request.open("POST", url);
+    request.setRequestHeader("Content-Type", "application/json");
+    request.send(JSON.stringify(body));
+
+    request.onload = (e) => {
+        var response = request.response;
+        if(response)
+        {
+          alert("Successfully Signed In");
+        }
+        else{
+          alert("Entered details are incorrect, cannot Login.");
+        }
+    }
+  }
+</script>
+</html>

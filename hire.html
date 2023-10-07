@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tour Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel = "stylesheet" href = "css/normalize.css">
+    <link rel = "stylesheet" href = "css/utility.css">
+    <link rel = "stylesheet" href = "css/style.css">
+    <link rel = "stylesheet" href = "css/responsive.css">
+    <script src="hire.js"></script>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("xXwGaKQ_ZQfqXUlnd");
+      })();
+    </script>
+  </head>
+  <body>
+    <nav class = "navbar">
+      <div class = "container flex">
+          <a href = "home.html" class = "site-brand">
+               Tour<span>Guide</span>
+          </a>
+
+          <button type = "button" id = "navbar-show-btn" class = "flex">
+              <i class = "fas fa-bars"></i>
+          </button>
+      </div>
+  </nav>
+ 
+
+  <!-- header -->
+  <header class = "flex header-sm">
+      <div class = "container">
+          <div class = "header-title">
+              <h1>Join Us</h1>
+              <p></p>
+          </div>
+      </div>
+  </header>
+  <section id = "contact" class = "py-4">
+    <div class = "container">
+        <div class = "title-wrap">
+            <span class = "sm-title">we are hiring Tour Guides</span>
+            <h2 class = "lg-title">Fill the details </h2>
+        </div>
+        <div class = "contact-row">
+        <div class = "contact-left">
+            <form class="contact-form">
+            <input type= "text" class="form-control" id="name" placeholder="Enter name" />
+            <input type="email" class="form-control" id="email" placeholder="Enter email"/>
+            <input type="text" class="form-control" id="phno" placeholder="Enter contact number"/>
+          </form>   
+      </div>
+      <div class = "contact-right my-1">
+        <div class = "contact-left">
+            <form class="contact-form">
+                <input type= "text" class="form-control" id="last" placeholder="Enter last name" />
+                <input type="text" class="form-control" id="Address" placeholder="Address"/>
+                <input type="text" class="form-control" id="experience" placeholder="Experience"/>
+                <input type="button" class="btn" value="Submit"  onclick ="sendMail()">
+              </form>    
+      </div>
+      
+  </div>
+</section>
+
+
+<!-- end of contact section -->
+
+
+<!-- footer -->
+<footer class = "py-4">
+<div class = "container footer-row">
+    <div class = "footer-item">
+        <a href = "index.html" class = "site-brand">
+            Tour<span>Guide</span>
+        </a>
+        <p class = "text">Good things come to those who travel & good travel experiences comes to those who get a tour guide</p>
+    </div>
+
+    <div class = "footer-item">
+        <h2>Follow us on: </h2>
+        <ul class = "social-links">
+            <li>
+                <a href = "#">
+                    <i class = "fab fa-facebook-f"></i>
+                </a>
+            </li>
+            <li>
+                <a href = "#">
+                    <i class = "fab fa-instagram"></i>
+                </a>
+            </li>
+            <li>
+                <a href = "#">
+                    <i class = "fab fa-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href = "#">
+                    <i class = "fab fa-pinterest"></i>
+                </a>
+            </li>
+            <li>
+                <a href = "#">
+                    <i class = "fab fa-google-plus"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    
+      </div>
+    </div>
+    <script src = "js/script.js"></script>
+  </body>
+</html>
